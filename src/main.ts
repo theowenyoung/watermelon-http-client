@@ -23,7 +23,9 @@ export async function run(): Promise<void> {
     const graphql: string = getInput('graphql')
     const variables: string = getInput('variables')
     const operationName: string = getInput('operation_name')
-
+    console.log('rawInputHeaders', rawInputHeaders)
+    console.log('data ', data)
+    console.log('master', typeof data)
     let inputHeaders: Object
     if (isDefined(rawInputHeaders)) {
       inputHeaders = JSON.parse(rawInputHeaders)
