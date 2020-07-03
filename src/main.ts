@@ -1,3 +1,5 @@
+/* eslint-disable no-console*/
+
 import {getInput, setFailed, setOutput} from '@actions/core'
 import {graphqlPayloadFor} from './graphql'
 import {Logger} from './log'
@@ -10,7 +12,7 @@ const isCustomURL = (url: string): Boolean => url !== 'https://api.github.com'
 
 export async function run(): Promise<void> {
   try {
-    const verbose: boolean = getInput('verbose') === 'true'
+    const verbose = true
     const log = new Logger(verbose)
 
     let url: string = getInput('url')
@@ -54,6 +56,9 @@ export async function run(): Promise<void> {
       log.info('data', data)
     }
 
+    console.log('data', typeof data, data)
+    console.log('url', url)
+    console.log('inputHeaders', inputHeaders)
     const [status, rawResponseHeaders, rawResponse] = await request(
       url,
       <Method>method,
