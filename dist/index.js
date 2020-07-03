@@ -907,6 +907,9 @@ function run() {
             const graphql = core_1.getInput('graphql');
             const variables = core_1.getInput('variables');
             const operationName = core_1.getInput('operation_name');
+            console.log('rawInputHeaders', rawInputHeaders);
+            console.log('data ', data);
+            console.log('master', typeof data);
             let inputHeaders;
             if (isDefined(rawInputHeaders)) {
                 inputHeaders = JSON.parse(rawInputHeaders);
